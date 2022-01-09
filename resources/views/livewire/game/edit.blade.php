@@ -1,15 +1,5 @@
 <form wire:submit.prevent="submit" class="pt-3">
 
-    <div class="form-group {{ $errors->has('mediaCollections.game_boxart') ? 'invalid' : '' }}">
-        <label class="form-label" for="boxart">{{ trans('cruds.game.fields.boxart') }}</label>
-        <x-dropzone id="boxart" name="boxart" action="{{ route('admin.games.storeMedia') }}" collection-name="game_boxart" max-file-size="2" max-width="4096" max-height="4096" max-files="1" />
-        <div class="validation-message">
-            {{ $errors->first('mediaCollections.game_boxart') }}
-        </div>
-        <div class="help-block">
-            {{ trans('cruds.game.fields.boxart_helper') }}
-        </div>
-    </div>
     <div class="form-group {{ $errors->has('game.name') ? 'invalid' : '' }}">
         <label class="form-label required" for="name">{{ trans('cruds.game.fields.name') }}</label>
         <input class="form-control" type="text" name="name" id="name" required wire:model.defer="game.name">

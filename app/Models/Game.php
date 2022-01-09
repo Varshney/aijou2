@@ -8,16 +8,12 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Game extends Model implements HasMedia
+class Game extends Model
 {
     use HasFactory;
     use HasAdvancedFilter;
     use SoftDeletes;
-    use InteractsWithMedia;
 
     public $table = 'games';
 
@@ -43,10 +39,6 @@ class Game extends Model implements HasMedia
         'ww_release_date',
         'developer.name',
         'publisher.name',
-    ];
-
-    protected $appends = [
-        'boxart',
     ];
 
     protected $dates = [
@@ -79,36 +71,6 @@ class Game extends Model implements HasMedia
         'store_ubisoft',
         'store_nintendo_e_shop',
     ];
-
-    public function registerMediaConversions(Media $media = null): void
-    {
-        $thumbnailWidth  = 50;
-        $thumbnailHeight = 50;
-
-        $thumbnailPreviewWidth  = 120;
-        $thumbnailPreviewHeight = 120;
-
-        $this->addMediaConversion('thumbnail')
-            ->width($thumbnailWidth)
-            ->height($thumbnailHeight)
-            ->fit('crop', $thumbnailWidth, $thumbnailHeight);
-        $this->addMediaConversion('preview_thumbnail')
-            ->width($thumbnailPreviewWidth)
-            ->height($thumbnailPreviewHeight)
-            ->fit('crop', $thumbnailPreviewWidth, $thumbnailPreviewHeight);
-    }
-
-    public function getBoxartAttribute()
-    {
-        return $this->getMedia('game_boxart')->map(function ($item) {
-            $media = $item->toArray();
-            $media['url'] = $item->getUrl();
-            $media['thumbnail'] = $item->getUrl('thumbnail');
-            $media['preview_thumbnail'] = $item->getUrl('preview_thumbnail');
-
-            return $media;
-        });
-    }
 
     public function platform()
     {

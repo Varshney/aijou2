@@ -45,9 +45,6 @@
                             @include('components.table.sort', ['field' => 'id'])
                         </th>
                         <th>
-                            {{ trans('cruds.game.fields.boxart') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.game.fields.name') }}
                             @include('components.table.sort', ['field' => 'name'])
                         </th>
@@ -93,13 +90,6 @@
                             </td>
                             <td>
                                 {{ $game->id }}
-                            </td>
-                            <td>
-                                @foreach($game->boxart as $key => $entry)
-                                    <a class="link-photo" href="{{ $entry['url'] }}">
-                                        <img src="{{ $entry['thumbnail'] }}" alt="{{ $entry['name'] }}" title="{{ $entry['name'] }}">
-                                    </a>
-                                @endforeach
                             </td>
                             <td>
                                 {{ $game->name }}

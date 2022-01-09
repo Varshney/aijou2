@@ -28,7 +28,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::resource('users', UserController::class, ['except' => ['store', 'update', 'destroy']]);
 
     // Game
-    Route::post('games/media', [GameController::class, 'storeMedia'])->name('games.storeMedia');
     Route::resource('games', GameController::class, ['except' => ['store', 'update', 'destroy']]);
 
     // Platform
