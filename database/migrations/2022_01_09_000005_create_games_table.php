@@ -15,6 +15,7 @@ class CreateGamesTable extends Migration
             $table->date('na_release_date')->nullable();
             $table->date('jpm_release_date')->nullable();
             $table->date('kr_release_date')->nullable();
+            $table->date('ww_release_date')->nullable();
             $table->string('store_amazon')->nullable();
             $table->string('store_ea')->nullable();
             $table->string('store_epic_games_store')->nullable();

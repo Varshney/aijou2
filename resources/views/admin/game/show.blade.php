@@ -89,6 +89,14 @@
                         </tr>
                         <tr>
                             <th>
+                                {{ trans('cruds.game.fields.ww_release_date') }}
+                            </th>
+                            <td>
+                                {{ $game->ww_release_date }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
                                 {{ trans('cruds.game.fields.developer') }}
                             </th>
                             <td>

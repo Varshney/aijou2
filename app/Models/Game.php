@@ -28,6 +28,7 @@ class Game extends Model implements HasMedia
         'na_release_date',
         'jpm_release_date',
         'kr_release_date',
+        'ww_release_date',
         'publisher.name',
     ];
 
@@ -39,6 +40,7 @@ class Game extends Model implements HasMedia
         'na_release_date',
         'jpm_release_date',
         'kr_release_date',
+        'ww_release_date',
         'developer.name',
         'publisher.name',
     ];
@@ -52,6 +54,7 @@ class Game extends Model implements HasMedia
         'na_release_date',
         'jpm_release_date',
         'kr_release_date',
+        'ww_release_date',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -63,6 +66,7 @@ class Game extends Model implements HasMedia
         'na_release_date',
         'jpm_release_date',
         'kr_release_date',
+        'ww_release_date',
         'publisher_id',
         'store_amazon',
         'store_ea',
@@ -149,6 +153,16 @@ class Game extends Model implements HasMedia
     public function setKrReleaseDateAttribute($value)
     {
         $this->attributes['kr_release_date'] = $value ? Carbon::createFromFormat(config('project.date_format'), $value)->format('Y-m-d') : null;
+    }
+
+    public function getWwReleaseDateAttribute($value)
+    {
+        return $value ? Carbon::parse($value)->format(config('project.date_format')) : null;
+    }
+
+    public function setWwReleaseDateAttribute($value)
+    {
+        $this->attributes['ww_release_date'] = $value ? Carbon::createFromFormat(config('project.date_format'), $value)->format('Y-m-d') : null;
     }
 
     public function developer()

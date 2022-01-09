@@ -71,6 +71,10 @@
                             @include('components.table.sort', ['field' => 'kr_release_date'])
                         </th>
                         <th>
+                            {{ trans('cruds.game.fields.ww_release_date') }}
+                            @include('components.table.sort', ['field' => 'ww_release_date'])
+                        </th>
+                        <th>
                             {{ trans('cruds.game.fields.developer') }}
                         </th>
                         <th>
@@ -116,6 +120,9 @@
                             </td>
                             <td>
                                 {{ $game->kr_release_date }}
+                            </td>
+                            <td>
+                                {{ $game->ww_release_date }}
                             </td>
                             <td>
                                 @foreach($game->developer as $key => $entry)
