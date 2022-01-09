@@ -11,7 +11,8 @@ class Create extends Component
 
     public function mount(Company $company)
     {
-        $this->company = $company;
+        $this->company            = $company;
+        $this->company->publisher = false;
     }
 
     public function render()
@@ -34,6 +35,13 @@ class Create extends Component
             'company.name' => [
                 'string',
                 'required',
+            ],
+            'company.url' => [
+                'string',
+                'nullable',
+            ],
+            'company.publisher' => [
+                'boolean',
             ],
         ];
     }

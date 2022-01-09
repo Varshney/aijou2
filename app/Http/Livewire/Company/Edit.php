@@ -35,6 +35,13 @@ class Edit extends Component
                 'string',
                 'required',
             ],
+            'company.url' => [
+                'string',
+                'nullable',
+            ],
+            'company.publisher' => [
+                'boolean',
+            ],
         ];
     }
 }
