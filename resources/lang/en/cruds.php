@@ -119,6 +119,8 @@ return [
             'store_ubisoft_helper'          => 'Ubisoft store link',
             'store_nintendo_e_shop'         => 'Nintendo eShop',
             'store_nintendo_e_shop_helper'  => 'Nintendo eShop store link',
+            'boxart'                        => 'Boxart',
+            'boxart_helper'                 => ' ',
         ],
     ],
     'platform' => [
@@ -153,6 +155,10 @@ return [
             'updated_at_helper' => ' ',
             'deleted_at'        => 'Deleted at',
             'deleted_at_helper' => ' ',
+            'url'               => 'Site address',
+            'url_helper'        => ' ',
+            'publisher'         => 'Publisher',
+            'publisher_helper'  => ' ',
         ],
     ],
 ];

@@ -11,6 +11,8 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('url')->nullable();
+            $table->boolean('publisher')->default(0)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
