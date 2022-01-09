@@ -121,6 +121,8 @@ return [
             'store_nintendo_e_shop_helper'  => 'Nintendo eShop store link',
             'boxart'                        => 'Boxart',
             'boxart_helper'                 => ' ',
+            'ww_release_date'               => 'Worldwide Release Date',
+            'ww_release_date_helper'        => ' ',
         ],
     ],
     'platform' => [

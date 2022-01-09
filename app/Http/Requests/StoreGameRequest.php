@@ -52,6 +52,10 @@ class StoreGameRequest extends FormRequest
                 'nullable',
                 'date_format:' . config('project.date_format'),
             ],
+            'ww_release_date' => [
+                'nullable',
+                'date_format:' . config('project.date_format'),
+            ],
             'developer' => [
                 'array',
             ],

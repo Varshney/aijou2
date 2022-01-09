@@ -70,6 +70,16 @@
             {{ trans('cruds.game.fields.kr_release_date_helper') }}
         </div>
     </div>
+    <div class="form-group {{ $errors->has('game.ww_release_date') ? 'invalid' : '' }}">
+        <label class="form-label" for="ww_release_date">{{ trans('cruds.game.fields.ww_release_date') }}</label>
+        <x-date-picker class="form-control" wire:model="game.ww_release_date" id="ww_release_date" name="ww_release_date" picker="date" />
+        <div class="validation-message">
+            {{ $errors->first('game.ww_release_date') }}
+        </div>
+        <div class="help-block">
+            {{ trans('cruds.game.fields.ww_release_date_helper') }}
+        </div>
+    </div>
     <div class="form-group {{ $errors->has('developer') ? 'invalid' : '' }}">
         <label class="form-label" for="developer">{{ trans('cruds.game.fields.developer') }}</label>
         <x-select-list class="form-control" id="developer" name="developer" wire:model="developer" :options="$this->listsForFields['developer']" multiple />
