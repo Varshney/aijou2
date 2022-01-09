@@ -6,7 +6,6 @@ use App\Http\Controllers\Api\V1\Admin\PlatformApiController;
 
 Route::group(['prefix' => 'v1', 'as' => 'api.', 'middleware' => ['auth:sanctum']], function () {
     // Game
-    Route::post('games/media', [GameApiController::class, 'storeMedia'])->name('games.store_media');
     Route::apiResource('games', GameApiController::class);
 
     // Platform

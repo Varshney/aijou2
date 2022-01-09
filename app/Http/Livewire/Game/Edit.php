@@ -6,7 +6,6 @@ use App\Models\Company;
 use App\Models\Game;
 use App\Models\Platform;
 use Livewire\Component;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Edit extends Component
 {
@@ -16,30 +15,7 @@ class Edit extends Component
 
     public array $developer = [];
 
-    public array $mediaToRemove = [];
-
     public array $listsForFields = [];
-
-    public array $mediaCollections = [];
-
-    public function addMedia($media): void
-    {
-        $this->mediaCollections[$media['collection_name']][] = $media;
-    }
-
-    public function removeMedia($media): void
-    {
-        $collection = collect($this->mediaCollections[$media['collection_name']]);
-
-        $this->mediaCollections[$media['collection_name']] = $collection->reject(fn ($item) => $item['uuid'] === $media['uuid'])->toArray();
-
-        $this->mediaToRemove[] = $media['uuid'];
-    }
-
-    public function getMediaCollection($name)
-    {
-        return $this->mediaCollections[$name];
-    }
 
     public function mount(Game $game)
     {
@@ -47,9 +23,6 @@ class Edit extends Component
         $this->platform  = $this->game->platform()->pluck('id')->toArray();
         $this->developer = $this->game->developer()->pluck('id')->toArray();
         $this->initListsForFields();
-        $this->mediaCollections = [
-            'game_boxart' => $game->boxart,
-        ];
     }
 
     public function render()
@@ -64,31 +37,13 @@ class Edit extends Component
         $this->game->save();
         $this->game->platform()->sync($this->platform);
         $this->game->developer()->sync($this->developer);
-        $this->syncMedia();
 
         return redirect()->route('admin.games.index');
-    }
-
-    protected function syncMedia(): void
-    {
-        collect($this->mediaCollections)->flatten(1)
-            ->each(fn ($item) => Media::where('uuid', $item['uuid'])
-            ->update(['model_id' => $this->game->id]));
-
-        Media::whereIn('uuid', $this->mediaToRemove)->delete();
     }
 
     protected function rules(): array
     {
         return [
-            'mediaCollections.game_boxart' => [
-                'array',
-                'nullable',
-            ],
-            'mediaCollections.game_boxart.*.id' => [
-                'integer',
-                'exists:media,id',
-            ],
             'game.name' => [
                 'string',
                 'required',

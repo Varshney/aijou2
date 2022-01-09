@@ -27,18 +27,6 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ trans('cruds.game.fields.boxart') }}
-                            </th>
-                            <td>
-                                @foreach($game->boxart as $key => $entry)
-                                    <a class="link-photo" href="{{ $entry['url'] }}">
-                                        <img src="{{ $entry['preview_thumbnail'] }}" alt="{{ $entry['name'] }}" title="{{ $entry['name'] }}">
-                                    </a>
-                                @endforeach
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
                                 {{ trans('cruds.game.fields.name') }}
                             </th>
                             <td>
