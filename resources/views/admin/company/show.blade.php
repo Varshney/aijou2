@@ -33,6 +33,14 @@
                                 {{ $company->name }}
                             </td>
                         </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.company.fields.url') }}
+                            </th>
+                            <td>
+                                {{ $company->url }}
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

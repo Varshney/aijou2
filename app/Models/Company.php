@@ -19,15 +19,18 @@ class Company extends Model
     public $orderable = [
         'id',
         'name',
+        'url',
     ];
 
     public $filterable = [
         'id',
         'name',
+        'url',
     ];
 
     protected $fillable = [
         'name',
+        'url',
     ];
 
     protected $dates = [

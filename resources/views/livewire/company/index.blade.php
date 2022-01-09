@@ -49,6 +49,10 @@
                             @include('components.table.sort', ['field' => 'name'])
                         </th>
                         <th>
+                            {{ trans('cruds.company.fields.url') }}
+                            @include('components.table.sort', ['field' => 'url'])
+                        </th>
+                        <th>
                         </th>
                     </tr>
                 </thead>
@@ -63,6 +67,9 @@
                             </td>
                             <td>
                                 {{ $company->name }}
+                            </td>
+                            <td>
+                                {{ $company->url }}
                             </td>
                             <td>
                                 <div class="flex justify-end">
