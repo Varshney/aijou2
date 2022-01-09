@@ -69,6 +69,14 @@
                         </tr>
                         <tr>
                             <th>
+                                {{ trans('cruds.game.fields.kr_release_date') }}
+                            </th>
+                            <td>
+                                {{ $game->kr_release_date }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
                                 {{ trans('cruds.game.fields.developer') }}
                             </th>
                             <td>
@@ -85,6 +93,86 @@
                                 @if($game->publisher)
                                     <span class="badge badge-relationship">{{ $game->publisher->name ?? '' }}</span>
                                 @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.game.fields.store_amazon') }}
+                            </th>
+                            <td>
+                                {{ $game->store_amazon }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.game.fields.store_ea') }}
+                            </th>
+                            <td>
+                                {{ $game->store_ea }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.game.fields.store_epic_games_store') }}
+                            </th>
+                            <td>
+                                {{ $game->store_epic_games_store }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.game.fields.store_gog') }}
+                            </th>
+                            <td>
+                                {{ $game->store_gog }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.game.fields.store_humble_bundle') }}
+                            </th>
+                            <td>
+                                {{ $game->store_humble_bundle }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.game.fields.store_microsoft') }}
+                            </th>
+                            <td>
+                                {{ $game->store_microsoft }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.game.fields.store_playstation') }}
+                            </th>
+                            <td>
+                                {{ $game->store_playstation }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.game.fields.store_steam') }}
+                            </th>
+                            <td>
+                                {{ $game->store_steam }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.game.fields.store_ubisoft') }}
+                            </th>
+                            <td>
+                                {{ $game->store_ubisoft }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.game.fields.store_nintendo_e_shop') }}
+                            </th>
+                            <td>
+                                {{ $game->store_nintendo_e_shop }}
                             </td>
                         </tr>
                     </tbody>

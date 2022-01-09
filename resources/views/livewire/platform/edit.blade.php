@@ -10,6 +10,16 @@
             {{ trans('cruds.platform.fields.name_helper') }}
         </div>
     </div>
+    <div class="form-group {{ $errors->has('platform.acronym') ? 'invalid' : '' }}">
+        <label class="form-label required" for="acronym">{{ trans('cruds.platform.fields.acronym') }}</label>
+        <input class="form-control" type="text" name="acronym" id="acronym" required wire:model.defer="platform.acronym">
+        <div class="validation-message">
+            {{ $errors->first('platform.acronym') }}
+        </div>
+        <div class="help-block">
+            {{ trans('cruds.platform.fields.acronym_helper') }}
+        </div>
+    </div>
 
     <div class="form-group">
         <button class="btn btn-indigo mr-2" type="submit">

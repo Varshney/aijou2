@@ -35,6 +35,11 @@ class Create extends Component
                 'string',
                 'required',
             ],
+            'platform.acronym' => [
+                'string',
+                'required',
+                'unique:platforms,acronym',
+            ],
         ];
     }
 }

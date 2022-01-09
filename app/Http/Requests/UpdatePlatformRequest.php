@@ -29,6 +29,11 @@ class UpdatePlatformRequest extends FormRequest
                 'string',
                 'required',
             ],
+            'acronym' => [
+                'string',
+                'required',
+                'unique:platforms,acronym,' . request()->route('platform')->id,
+            ],
         ];
     }
 }

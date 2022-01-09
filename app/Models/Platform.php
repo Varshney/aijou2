@@ -19,15 +19,18 @@ class Platform extends Model
     public $orderable = [
         'id',
         'name',
+        'acronym',
     ];
 
     public $filterable = [
         'id',
         'name',
+        'acronym',
     ];
 
     protected $fillable = [
         'name',
+        'acronym',
     ];
 
     protected $dates = [

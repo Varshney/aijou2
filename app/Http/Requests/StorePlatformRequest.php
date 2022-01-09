@@ -29,6 +29,11 @@ class StorePlatformRequest extends FormRequest
                 'string',
                 'required',
             ],
+            'acronym' => [
+                'string',
+                'required',
+                'unique:platforms,acronym',
+            ],
         ];
     }
 }

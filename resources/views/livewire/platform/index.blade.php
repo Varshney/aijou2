@@ -49,6 +49,10 @@
                             @include('components.table.sort', ['field' => 'name'])
                         </th>
                         <th>
+                            {{ trans('cruds.platform.fields.acronym') }}
+                            @include('components.table.sort', ['field' => 'acronym'])
+                        </th>
+                        <th>
                         </th>
                     </tr>
                 </thead>
@@ -63,6 +67,9 @@
                             </td>
                             <td>
                                 {{ $platform->name }}
+                            </td>
+                            <td>
+                                {{ $platform->acronym }}
                             </td>
                             <td>
                                 <div class="flex justify-end">

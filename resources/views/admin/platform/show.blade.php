@@ -33,6 +33,14 @@
                                 {{ $platform->name }}
                             </td>
                         </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.platform.fields.acronym') }}
+                            </th>
+                            <td>
+                                {{ $platform->acronym }}
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

@@ -64,11 +64,55 @@
                             @include('components.table.sort', ['field' => 'jpm_release_date'])
                         </th>
                         <th>
+                            {{ trans('cruds.game.fields.kr_release_date') }}
+                            @include('components.table.sort', ['field' => 'kr_release_date'])
+                        </th>
+                        <th>
                             {{ trans('cruds.game.fields.developer') }}
                         </th>
                         <th>
                             {{ trans('cruds.game.fields.publisher') }}
                             @include('components.table.sort', ['field' => 'publisher.name'])
+                        </th>
+                        <th>
+                            {{ trans('cruds.game.fields.store_amazon') }}
+                            @include('components.table.sort', ['field' => 'store_amazon'])
+                        </th>
+                        <th>
+                            {{ trans('cruds.game.fields.store_ea') }}
+                            @include('components.table.sort', ['field' => 'store_ea'])
+                        </th>
+                        <th>
+                            {{ trans('cruds.game.fields.store_epic_games_store') }}
+                            @include('components.table.sort', ['field' => 'store_epic_games_store'])
+                        </th>
+                        <th>
+                            {{ trans('cruds.game.fields.store_gog') }}
+                            @include('components.table.sort', ['field' => 'store_gog'])
+                        </th>
+                        <th>
+                            {{ trans('cruds.game.fields.store_humble_bundle') }}
+                            @include('components.table.sort', ['field' => 'store_humble_bundle'])
+                        </th>
+                        <th>
+                            {{ trans('cruds.game.fields.store_microsoft') }}
+                            @include('components.table.sort', ['field' => 'store_microsoft'])
+                        </th>
+                        <th>
+                            {{ trans('cruds.game.fields.store_playstation') }}
+                            @include('components.table.sort', ['field' => 'store_playstation'])
+                        </th>
+                        <th>
+                            {{ trans('cruds.game.fields.store_steam') }}
+                            @include('components.table.sort', ['field' => 'store_steam'])
+                        </th>
+                        <th>
+                            {{ trans('cruds.game.fields.store_ubisoft') }}
+                            @include('components.table.sort', ['field' => 'store_ubisoft'])
+                        </th>
+                        <th>
+                            {{ trans('cruds.game.fields.store_nintendo_e_shop') }}
+                            @include('components.table.sort', ['field' => 'store_nintendo_e_shop'])
                         </th>
                         <th>
                         </th>
@@ -101,6 +145,9 @@
                                 {{ $game->jpm_release_date }}
                             </td>
                             <td>
+                                {{ $game->kr_release_date }}
+                            </td>
+                            <td>
                                 @foreach($game->developer as $key => $entry)
                                     <span class="badge badge-relationship">{{ $entry->name }}</span>
                                 @endforeach
@@ -109,6 +156,36 @@
                                 @if($game->publisher)
                                     <span class="badge badge-relationship">{{ $game->publisher->name ?? '' }}</span>
                                 @endif
+                            </td>
+                            <td>
+                                {{ $game->store_amazon }}
+                            </td>
+                            <td>
+                                {{ $game->store_ea }}
+                            </td>
+                            <td>
+                                {{ $game->store_epic_games_store }}
+                            </td>
+                            <td>
+                                {{ $game->store_gog }}
+                            </td>
+                            <td>
+                                {{ $game->store_humble_bundle }}
+                            </td>
+                            <td>
+                                {{ $game->store_microsoft }}
+                            </td>
+                            <td>
+                                {{ $game->store_playstation }}
+                            </td>
+                            <td>
+                                {{ $game->store_steam }}
+                            </td>
+                            <td>
+                                {{ $game->store_ubisoft }}
+                            </td>
+                            <td>
+                                {{ $game->store_nintendo_e_shop }}
                             </td>
                             <td>
                                 <div class="flex justify-end">

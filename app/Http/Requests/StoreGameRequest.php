@@ -48,6 +48,10 @@ class StoreGameRequest extends FormRequest
                 'nullable',
                 'date_format:' . config('project.date_format'),
             ],
+            'kr_release_date' => [
+                'nullable',
+                'date_format:' . config('project.date_format'),
+            ],
             'developer' => [
                 'array',
             ],
@@ -58,6 +62,46 @@ class StoreGameRequest extends FormRequest
             'publisher_id' => [
                 'integer',
                 'exists:companies,id',
+                'nullable',
+            ],
+            'store_amazon' => [
+                'string',
+                'nullable',
+            ],
+            'store_ea' => [
+                'string',
+                'nullable',
+            ],
+            'store_epic_games_store' => [
+                'string',
+                'nullable',
+            ],
+            'store_gog' => [
+                'string',
+                'nullable',
+            ],
+            'store_humble_bundle' => [
+                'string',
+                'nullable',
+            ],
+            'store_microsoft' => [
+                'string',
+                'nullable',
+            ],
+            'store_playstation' => [
+                'string',
+                'nullable',
+            ],
+            'store_steam' => [
+                'string',
+                'nullable',
+            ],
+            'store_ubisoft' => [
+                'string',
+                'nullable',
+            ],
+            'store_nintendo_e_shop' => [
+                'string',
                 'nullable',
             ],
         ];
