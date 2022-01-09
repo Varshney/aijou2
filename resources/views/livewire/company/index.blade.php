@@ -49,6 +49,14 @@
                             @include('components.table.sort', ['field' => 'name'])
                         </th>
                         <th>
+                            {{ trans('cruds.company.fields.url') }}
+                            @include('components.table.sort', ['field' => 'url'])
+                        </th>
+                        <th>
+                            {{ trans('cruds.company.fields.publisher') }}
+                            @include('components.table.sort', ['field' => 'publisher'])
+                        </th>
+                        <th>
                         </th>
                     </tr>
                 </thead>
@@ -63,6 +71,12 @@
                             </td>
                             <td>
                                 {{ $company->name }}
+                            </td>
+                            <td>
+                                {{ $company->url }}
+                            </td>
+                            <td>
+                                <input class="disabled:opacity-50 disabled:cursor-not-allowed" type="checkbox" disabled {{ $company->publisher ? 'checked' : '' }}>
                             </td>
                             <td>
                                 <div class="flex justify-end">

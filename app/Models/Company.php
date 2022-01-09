@@ -16,18 +16,27 @@ class Company extends Model
 
     public $table = 'companies';
 
-    public $orderable = [
-        'id',
-        'name',
-    ];
-
     public $filterable = [
         'id',
         'name',
+        'url',
+    ];
+
+    public $orderable = [
+        'id',
+        'name',
+        'url',
+        'publisher',
+    ];
+
+    protected $casts = [
+        'publisher' => 'boolean',
     ];
 
     protected $fillable = [
         'name',
+        'url',
+        'publisher',
     ];
 
     protected $dates = [

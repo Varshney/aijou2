@@ -33,6 +33,22 @@
                                 {{ $company->name }}
                             </td>
                         </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.company.fields.url') }}
+                            </th>
+                            <td>
+                                {{ $company->url }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                {{ trans('cruds.company.fields.publisher') }}
+                            </th>
+                            <td>
+                                <input class="disabled:opacity-50 disabled:cursor-not-allowed" type="checkbox" disabled {{ $company->publisher ? 'checked' : '' }}>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

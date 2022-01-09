@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\MediaUploadTrait;
 use App\Http\Requests\StoreGameRequest;
 use App\Http\Requests\UpdateGameRequest;
 use App\Http\Resources\Admin\GameResource;
@@ -13,6 +14,8 @@ use Illuminate\Http\Response;
 
 class GameApiController extends Controller
 {
+    use MediaUploadTrait;
+
     public function index()
     {
         abort_if(Gate::denies('game_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -25,6 +28,9 @@ class GameApiController extends Controller
         $game = Game::create($request->validated());
         $game->platform()->sync($request->input('platform', []));
         $game->developer()->sync($request->input('developer', []));
+        if ($request->input('game_boxart', false)) {
+            $game->addMedia(storage_path('tmp/uploads/' . basename($request->input('game_boxart'))))->toMediaCollection('game_boxart');
+        }
 
         return (new GameResource($game))
             ->response()
@@ -43,6 +49,16 @@ class GameApiController extends Controller
         $game->update($request->validated());
         $game->platform()->sync($request->input('platform', []));
         $game->developer()->sync($request->input('developer', []));
+        if ($request->input('game_boxart', false)) {
+            if (!$game->game_boxart || $request->input('game_boxart') !== $game->game_boxart->file_name) {
+                if ($game->game_boxart) {
+                    $game->game_boxart->delete();
+                }
+                $game->addMedia(storage_path('tmp/uploads/' . basename($request->input('game_boxart'))))->toMediaCollection('game_boxart');
+            }
+        } elseif ($game->game_boxart) {
+            $game->game_boxart->delete();
+        }
 
         return (new GameResource($game))
             ->response()

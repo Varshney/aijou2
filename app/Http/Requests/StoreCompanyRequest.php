@@ -29,6 +29,13 @@ class StoreCompanyRequest extends FormRequest
                 'string',
                 'required',
             ],
+            'url' => [
+                'string',
+                'nullable',
+            ],
+            'publisher' => [
+                'boolean',
+            ],
         ];
     }
 }
