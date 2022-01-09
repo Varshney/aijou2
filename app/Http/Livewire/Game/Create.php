@@ -65,6 +65,10 @@ class Create extends Component
                 'nullable',
                 'date_format:' . config('project.date_format'),
             ],
+            'game.kr_release_date' => [
+                'nullable',
+                'date_format:' . config('project.date_format'),
+            ],
             'developer' => [
                 'array',
             ],
@@ -75,6 +79,46 @@ class Create extends Component
             'game.publisher_id' => [
                 'integer',
                 'exists:companies,id',
+                'nullable',
+            ],
+            'game.store_amazon' => [
+                'string',
+                'nullable',
+            ],
+            'game.store_ea' => [
+                'string',
+                'nullable',
+            ],
+            'game.store_epic_games_store' => [
+                'string',
+                'nullable',
+            ],
+            'game.store_gog' => [
+                'string',
+                'nullable',
+            ],
+            'game.store_humble_bundle' => [
+                'string',
+                'nullable',
+            ],
+            'game.store_microsoft' => [
+                'string',
+                'nullable',
+            ],
+            'game.store_playstation' => [
+                'string',
+                'nullable',
+            ],
+            'game.store_steam' => [
+                'string',
+                'nullable',
+            ],
+            'game.store_ubisoft' => [
+                'string',
+                'nullable',
+            ],
+            'game.store_nintendo_e_shop' => [
+                'string',
                 'nullable',
             ],
         ];
